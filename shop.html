@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="hu">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Bolt — Woo&Miau</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body data-page="shop">
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <img src="assets/logo.svg" alt="Woo&Miau" class="logo">
+      </a>
+      <nav class="nav">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="index.html">Főoldal</a></li>
+          <li class="nav-item dropdown">
+            <a href="shop.html">Bolt</a>
+            <ul class="dropdown-menu">
+              <li><a href="shop.html?cat=dogs">Kutyáknak</a></li>
+              <li><a href="shop.html?cat=cats">Macskáknak</a></li>
+              <li><a href="shop.html?cat=exotics">Exotikus</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a class="btn ghost" href="admin.html">Admin</a>
+        <a class="cart-link" href="cart.html">Kosár (<span id="cart-count">0</span>)</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>Bolt</h1>
+    <div class="shop-layout">
+      <aside class="filters">
+        <h3>Szűrők</h3>
+        <label><input type="checkbox" data-filter="barf"> BARF</label>
+        <label><input type="checkbox" data-filter="frozen"> Fagyasztott</label>
+      </aside>
+
+      <section class="shop-grid">
+        <div id="product-grid-shop" class="product-grid"></div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>Woo&Miau BARF</strong>
+      </div>
+      <div>
+        <a href="#">Szállítás</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/scripts.js"></script>
+</body>
+</html>

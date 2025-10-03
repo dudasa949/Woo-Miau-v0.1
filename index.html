@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="hu">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Woo&Miau — BARF állateledel</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body data-page="home">
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <img src="assets/logo.svg" alt="Woo&Miau" class="logo">
+      </a>
+      <nav class="nav">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="index.html">Főoldal</a></li>
+          <li class="nav-item dropdown">
+            <a href="shop.html">Bolt</a>
+            <ul class="dropdown-menu">
+              <li><a href="shop.html?cat=dogs">Kutyáknak</a></li>
+              <li><a href="shop.html?cat=cats">Macskáknak</a></li>
+              <li><a href="shop.html?cat=exotics">Exotikus</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a href="about.html">Rólunk</a></li>
+          <li class="nav-item"><a href="contact.html">Kapcsolat</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a class="btn ghost" href="admin.html">Admin</a>
+        <a class="cart-link" href="cart.html">Kosár (<span id="cart-count">0</span>)</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="carousel" id="hero-carousel" aria-roledescription="carousel">
+          <!-- slides injected by JS -->
+        </div>
+      </div>
+    </section>
+
+    <section class="products container">
+      <h2>Kiemelt termékek</h2>
+      <div id="product-grid" class="product-grid" aria-live="polite">
+        <!-- products injected by JS -->
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>Woo&Miau BARF</strong>
+        <p>Hűtött szállítás · Friss alapanyagok · Szakértői tanács</p>
+      </div>
+      <div>
+        <a href="#">Szállítás</a> · <a href="#">Fizetés</a> · <a href="#">Adatvédelmi nyilatkozat</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/scripts.js"></script>
+</body>
+</html>
+<!doctype html>
+<html lang="hu">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Woo&Miau BARF — Kezdőoldal (Demo)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="#">Woo&amp;Miau BARF</a>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="#">Kezdőlap</a></li>
+          <li class="has-children"><a href="#">Kutyáknak ▾</a></li>
+          <li class="has-children"><a href="#">Macskáknak ▾</a></li>
+          <li><a href="#">Exotics</a></li>
+          <li><a href="#">Akciók</a></li>
+          <li><a href="#">Kapcsolat</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-btn" aria-label="Keresés">🔍</button>
+        <button class="icon-btn" aria-label="Kosár">🛒<span class="cart-count">0</span></button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="carousel" aria-label="Fő carousel">
+        <div class="slide current">
+          <img src="assets/placeholder-1.svg" alt="Akció - BARF válogatás" />
+          <div class="slide-content">
+            <h1>Friss BARF ételek kedvenceidnek</h1>
+            <p>Hűtött kiszállítás, minőségi alapanyagok — nézd meg a heti ajánlatot.</p>
+            <div class="hero-ctas">
+              <a class="btn btn-primary" href="#">Nézd meg</a>
+              <a class="btn btn-outline" href="#">Akciók</a>
+            </div>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="assets/placeholder-1.svg" alt="Új termék" />
+          <div class="slide-content">
+            <h2>Új: Hal alapú menük macskáknak</h2>
+            <p>Alacsony szénhidrát, magas fehérje — most bevezető áron.</p>
+            <a class="btn btn-primary" href="#">Fedezd fel</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="products container">
+      <h2>Ajánlott termékek</h2>
+      <div class="product-grid">
+        <!-- Product card example (repeated) -->
+        <article class="product-card">
+          <a class="card-link" href="#">
+            <div class="card-media">
+              <img src="assets/placeholder-1.svg" alt="Termék kép – Rózsaszín tál" width="400" height="400">
+            </div>
+            <div class="card-body">
+              <h3 class="product-title">Csirke és zöldség BARF mix 1kg</h3>
+              <p class="product-meta">100% természetes • hűtött</p>
+              <div class="card-footer">
+                <div class="price">3 490 Ft</div>
+                <button class="btn btn-primary small">Kosárba teszem</button>
+              </div>
+            </div>
+          </a>
+        </article>
+
+        <article class="product-card">
+          <a class="card-link" href="#">
+            <div class="card-media">
+              <img src="assets/placeholder-1.svg" alt="Termék kép – Zöld tál" width="400" height="400">
+            </div>
+            <div class="card-body">
+              <h3 class="product-title">Marha és zöldség BARF 500g</h3>
+              <p class="product-meta">Grain-free • alacsony szénhidrát</p>
+              <div class="card-footer">
+                <div class="price">2 190 Ft</div>
+                <button class="btn btn-primary small">Kosárba teszem</button>
+              </div>
+            </div>
+          </a>
+        </article>
+
+        <article class="product-card">
+          <a class="card-link" href="#">
+            <div class="card-media">
+              <img src="assets/placeholder-1.svg" alt="Termék kép – Sárga tál" width="400" height="400">
+            </div>
+            <div class="card-body">
+              <h3 class="product-title">Nyúl és alma BARF 300g</h3>
+              <p class="product-meta">Hipoallergén • cukormentes</p>
+              <div class="card-footer">
+                <div class="price">1 690 Ft</div>
+                <button class="btn btn-primary small">Kosárba teszem</button>
+              </div>
+            </div>
+          </a>
+        </article>
+
+      </div>
+
+      <div class="more-link">
+        <a class="btn btn-outline" href="#">Összes termék megtekintése</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-left">
+        <h4>Woo&amp;Miau BARF</h4>
+        <p>Budapest — Hűtött kiszállítás, helyi pickup opció</p>
+        <p><a href="#">Nyitvatartás</a> · <a href="#">Kapcsolat</a></p>
+      </div>
+      <div class="footer-right">
+        <h5>Segítség</h5>
+        <ul>
+          <li><a href="#">Szállítás</a></li>
+          <li><a href="#">Visszaküldés</a></li>
+          <li><a href="#">GYIK</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/scripts.js"></script>
+</body>
+</html>

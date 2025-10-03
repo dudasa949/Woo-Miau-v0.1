@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="hu">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Admin — Woo&Miau</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body data-page="admin">
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <img src="assets/logo.svg" alt="Woo&Miau" class="logo">
+      </a>
+      <nav class="nav">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="index.html">Főoldal</a></li>
+          <li class="nav-item"><a href="shop.html">Bolt</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a class="cart-link" href="cart.html">Kosár</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container admin-page">
+    <h1>Admin - Termékek</h1>
+    <form id="product-form" class="product-form">
+      <input id="p-id" type="hidden">
+      <label>Név <input id="p-name"></label>
+      <label>Ár (Ft) <input id="p-price" type="number"></label>
+      <label>Kategória <input id="p-cat"></label>
+      <label>Kép URL <input id="p-img"></label>
+      <label>Leírás <textarea id="p-desc"></textarea></label>
+      <div class="form-actions">
+        <button id="save-product" class="btn primary">Mentés</button>
+        <button id="reset-product" class="btn ghost" type="button">Új</button>
+      </div>
+    </form>
+
+    <section>
+      <h2>Termék lista</h2>
+      <div id="admin-list" class="product-grid"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>Woo&Miau BARF</strong>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/scripts.js"></script>
+</body>
+</html>

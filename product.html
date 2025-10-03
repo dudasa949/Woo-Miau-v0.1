@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="hu">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Termék — Woo&Miau</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body data-page="product">
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <img src="assets/logo.svg" alt="Woo&Miau" class="logo">
+      </a>
+      <nav class="nav">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="index.html">Főoldal</a></li>
+          <li class="nav-item"><a href="shop.html">Bolt</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a class="btn ghost" href="admin.html">Admin</a>
+        <a class="cart-link" href="cart.html">Kosár (<span id="cart-count">0</span>)</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container product-page">
+    <div class="product-detail">
+      <div class="product-media">
+        <img id="product-image" src="assets/placeholder-1.svg" alt="Termék kép">
+      </div>
+      <div class="product-info">
+        <h1 id="product-title">Termék neve</h1>
+        <p id="product-meta">1000 g · Friss · BARF</p>
+        <div class="price"><strong id="product-price">3 499 Ft</strong></div>
+        <p id="product-desc">Rövid leírás placeholder szöveg. Itt részletes összetevők, adagolási információk találhatók.</p>
+        <div class="actions">
+          <label>Darab: <input id="qty" type="number" value="1" min="1"></label>
+          <button id="add-to-cart" class="btn primary">Kosárba teszem</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>Woo&Miau BARF</strong>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/scripts.js"></script>
+</body>
+</html>

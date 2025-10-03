@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="hu">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Kosár — Woo&Miau</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body data-page="cart">
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <img src="assets/logo.svg" alt="Woo&Miau" class="logo">
+      </a>
+      <nav class="nav">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="index.html">Főoldal</a></li>
+          <li class="nav-item"><a href="shop.html">Bolt</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a class="btn ghost" href="admin.html">Admin</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>Kosár</h1>
+    <div id="cart-items" class="cart-items"></div>
+    <div class="cart-summary">
+      <div>Összesen: <strong id="cart-total">0 Ft</strong></div>
+      <button id="checkout" class="btn primary">Rendelés leadása</button>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>Woo&Miau BARF</strong>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/scripts.js"></script>
+</body>
+</html>
