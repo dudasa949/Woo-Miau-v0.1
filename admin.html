@@ -3,46 +3,61 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Admin — Woo&Miau</title>
+  <title>Admin — Woo&Miau (Disabled)</title>
   <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body data-page="admin">
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="index.html">
-        <img src="assets/logo.svg" alt="Woo&Miau" class="logo">
+        <img src="assets/logo.svg" alt="Woo & Miau" class="logo">
+        <span class="brand-text">Woo & Miau</span>
       </a>
-      <nav class="nav">
+      <button id="nav-toggle" class="nav-toggle" aria-label="Menü" aria-expanded="false">☰</button>
+      <nav class="nav" aria-label="Fő menü">
         <ul class="nav-list">
           <li class="nav-item"><a href="index.html">Főoldal</a></li>
-          <li class="nav-item"><a href="shop.html">Bolt</a></li>
+          <li class="nav-item has-mega">
+            <button class="dropdown-toggle" aria-expanded="false">Termékek <span class="caret">▾</span></button>
+            <div class="dropdown-menu vertical" role="menu">
+              <ul>
+                <li class="subcat has-flyout" data-for="dogs">
+                  <a href="shop.html?cat=dogs">Kutyáknak</a>
+                  <div class="flyout flyout-right" id="fly-dogs" aria-hidden="true"><ul class="fly-list"></ul></div>
+                </li>
+                <li class="subcat has-flyout" data-for="cats">
+                  <a href="shop.html?cat=cats">Macskáknak</a>
+                  <div class="flyout flyout-right" id="fly-cats" aria-hidden="true"><ul class="fly-list"></ul></div>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item"><a href="#0">Rólunk</a></li>
+          <li class="nav-item"><a href="#0">Kapcsolat</a></li>
         </ul>
       </nav>
       <div class="header-actions">
-        <a class="cart-link" href="cart.html">Kosár</a>
+        <div class="search-wrap">
+          <input id="global-search" class="search-input" type="search" placeholder="Keresés..." aria-label="Keresés">
+          <button class="icon-btn search-btn" aria-label="Keresés">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          </button>
+        </div>
+        <button class="icon-btn user-btn" aria-label="Fiók">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-3-3.87"></path><path d="M4 21v-2a4 4 0 0 1 3-3.87"></path><circle cx="12" cy="7" r="4"></circle></svg>
+        </button>
+        <a class="cart-link" href="cart.html" aria-label="Kosár">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6h15l-1.5 9h-13z"></path><circle cx="9" cy="20" r="1"></circle><circle cx="19" cy="20" r="1"></circle></svg>
+          <span id="cart-count" class="cart-count">0</span>
+        </a>
       </div>
     </div>
   </header>
 
-  <main class="container admin-page">
-    <h1>Admin - Termékek</h1>
-    <form id="product-form" class="product-form">
-      <input id="p-id" type="hidden">
-      <label>Név <input id="p-name"></label>
-      <label>Ár (Ft) <input id="p-price" type="number"></label>
-      <label>Kategória <input id="p-cat"></label>
-      <label>Kép URL <input id="p-img"></label>
-      <label>Leírás <textarea id="p-desc"></textarea></label>
-      <div class="form-actions">
-        <button id="save-product" class="btn primary">Mentés</button>
-        <button id="reset-product" class="btn ghost" type="button">Új</button>
-      </div>
-    </form>
-
-    <section>
-      <h2>Termék lista</h2>
-      <div id="admin-list" class="product-grid"></div>
-    </section>
+  <main class="container">
+    <h1>Admin felület — ideiglenesen letiltva</h1>
+    <p>Az admin felület jelen demóban nem elérhető. A termékeket a helyi tárolóból (localStorage) lehet szerkeszteni, vagy az <code>assets/scripts.js</code> fájlban található alapadatokat módosítani.</p>
+    <p><a class="btn btn-outline" href="index.html">Vissza a főoldalra</a></p>
   </main>
 
   <footer class="site-footer">

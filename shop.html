@@ -10,39 +10,75 @@
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="index.html">
-        <img src="assets/logo.svg" alt="Woo&Miau" class="logo">
+        <img src="assets/logo.svg" alt="Woo & Miau" class="logo">
+        <span class="brand-text">Woo & Miau</span>
       </a>
-      <nav class="nav">
+      <button id="nav-toggle" class="nav-toggle" aria-label="Menü" aria-expanded="false">☰</button>
+      <nav class="nav" aria-label="Fő menü">
         <ul class="nav-list">
           <li class="nav-item"><a href="index.html">Főoldal</a></li>
-          <li class="nav-item dropdown">
-            <a href="shop.html">Bolt</a>
-            <ul class="dropdown-menu">
-              <li><a href="shop.html?cat=dogs">Kutyáknak</a></li>
-              <li><a href="shop.html?cat=cats">Macskáknak</a></li>
-              <li><a href="shop.html?cat=exotics">Exotikus</a></li>
-            </ul>
+          <li class="nav-item has-mega">
+            <button class="dropdown-toggle" aria-expanded="false">Termékek <span class="caret">▾</span></button>
+            <div class="dropdown-menu vertical" role="menu">
+              <ul>
+                <li class="subcat has-flyout" data-for="dogs">
+                  <a href="shop.html?cat=dogs">Kutyáknak</a>
+                  <div class="flyout flyout-right" id="fly-dogs" aria-hidden="true"><ul class="fly-list"></ul></div>
+                </li>
+                <li class="subcat has-flyout" data-for="cats">
+                  <a href="shop.html?cat=cats">Macskáknak</a>
+                  <div class="flyout flyout-right" id="fly-cats" aria-hidden="true"><ul class="fly-list"></ul></div>
+                </li>
+              </ul>
+            </div>
           </li>
+          <li class="nav-item"><a href="#0">Rólunk</a></li>
+          <li class="nav-item"><a href="#0">Kapcsolat</a></li>
         </ul>
       </nav>
       <div class="header-actions">
-        <a class="btn ghost" href="admin.html">Admin</a>
-        <a class="cart-link" href="cart.html">Kosár (<span id="cart-count">0</span>)</a>
+        <div class="search-wrap">
+          <input id="global-search" class="search-input" type="search" placeholder="Keresés..." aria-label="Keresés">
+          <button class="icon-btn search-btn" aria-label="Keresés">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          </button>
+        </div>
+        <button class="icon-btn user-btn" aria-label="Fiók">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-3-3.87"></path><path d="M4 21v-2a4 4 0 0 1 3-3.87"></path><circle cx="12" cy="7" r="4"></circle></svg>
+        </button>
+        <a class="cart-link" href="cart.html" aria-label="Kosár">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6h15l-1.5 9h-13z"></path><circle cx="9" cy="20" r="1"></circle><circle cx="19" cy="20" r="1"></circle></svg>
+          <span id="cart-count" class="cart-count">0</span>
+        </a>
       </div>
     </div>
   </header>
 
   <main class="container">
-    <h1>Bolt</h1>
+    <h1 id="shop-title">Bolt</h1>
     <div class="shop-layout">
       <aside class="filters">
         <h3>Szűrők</h3>
-        <label><input type="checkbox" data-filter="barf"> BARF</label>
-        <label><input type="checkbox" data-filter="frozen"> Fagyasztott</label>
+        <label><input type="checkbox" data-filter="dogs"> Kutyáknak</label>
+        <label><input type="checkbox" data-filter="cats"> Macskáknak</label>
+        <label><input type="checkbox" data-filter="exotics"> Exotikus</label>
+        <label>Min. ár: <input id="min-price" type="number" placeholder="0"></label>
+        <label>Max. ár: <input id="max-price" type="number" placeholder="100000"></label>
+        <button id="apply-filters" class="btn btn-outline">Alkalmaz</button>
+        <button id="clear-filters" class="btn ghost">Törlés</button>
       </aside>
 
       <section class="shop-grid">
-        <div id="product-grid-shop" class="product-grid"></div>
+        <!-- Paginated grid: 4 columns x 10 rows (40 items per page) -->
+        <div id="product-list-all" class="product-grid" style="margin-top:18px"></div>
+
+        <div class="shop-pagination" style="margin-top:18px;display:flex;align-items:center;justify-content:space-between">
+          <div>
+            <button id="shop-prev" class="btn ghost">‹ Előző</button>
+            <button id="shop-next" class="btn ghost">Következő ›</button>
+          </div>
+          <div class="shop-indicator muted" id="shop-indicator">0–0 / 0</div>
+        </div>
       </section>
     </div>
   </main>

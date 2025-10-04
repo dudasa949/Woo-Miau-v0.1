@@ -9,25 +9,18 @@
 }
 *{box-sizing:border-box}
 body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; margin:0; background:var(--bg); color:var(--text);}
-.container{max-width:1100px;margin:0 auto;padding:0 16px}
-.site-header{background:linear-gradient(0deg, rgba(255,255,255,0.6), rgba(255,255,255,0.6));backdrop-filter:blur(4px);position:sticky;top:0;z-index:20;border-bottom:1px solid rgba(0,0,0,0.04)}
+.container{max-width:1200px;margin:0 auto;padding:0 12px}
+.site-header{background:linear-gradient(0deg, rgba(255,255,255,0.7), rgba(255,255,255,0.7));backdrop-filter:blur(6px);position:sticky;top:0;z-index:60;border-bottom:1px solid rgba(0,0,0,0.06);height:var(--navbar-height)}
 .header-inner{display:flex;align-items:center;gap:16px;padding:12px 0}
-.logo{height:44px}
-.nav{flex:1}
-.nav-list{list-style:none;margin:0;padding:0;display:flex;gap:12px;align-items:center}
-.nav-item{position:relative}
-.nav-item a{color:var(--text);text-decoration:none;padding:8px 6px;display:inline-block}
-.dropdown-menu{position:absolute;left:0;top:100%;background:var(--surface);box-shadow:0 8px 20px rgba(17,24,39,0.06);padding:8px 0;border-radius:8px;display:none;min-width:160px}
-.nav-item.dropdown:hover .dropdown-menu{display:block}
-.dropdown-menu li{padding:0}
-.dropdown-menu a{display:block;padding:8px 16px}
+.logo{height:40px}
+.nav-toggle{display:none;background:transparent;border:0;font-size:22px;cursor:pointer;padding:6px 8px;border-radius:8px}
 .header-actions{display:flex;gap:12px;align-items:center}
 .btn{border-radius:var(--radius);padding:8px 12px;border:0;cursor:pointer;background:transparent}
 .btn.primary{background:var(--brand);color:white}
 .btn.ghost{border:1px solid rgba(0,0,0,0.06);background:transparent}
-.hero{padding:28px 0}
-.carousel{height:260px;border-radius:12px;overflow:hidden;background:linear-gradient(90deg,var(--brand), transparent)}
-.carousel .slide{height:100%;display:flex;align-items:center;justify-content:center;color:white;font-size:20px;padding:24px}
+.hero{padding:8px 0}
+.carousel{height:100%;border-radius:12px;overflow:hidden;background:linear-gradient(90deg,var(--brand), transparent)}
+.carousel .slide{height:100%;display:flex;align-items:center;justify-content:flex-start;color:white;font-size:20px;padding:24px}
 .products{padding:28px 0}
 .product-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px}
 .product-card{background:var(--surface);border-radius:12px;overflow:hidden;box-shadow:0 6px 18px rgba(17,24,39,0.04);transition:transform .18s ease,box-shadow .18s ease}
@@ -45,6 +38,7 @@ body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica
 /* Responsive */
 @media(max-width:720px){
   .nav-list{display:none}
+  .nav-toggle{display:inline-block}
   .carousel{height:180px}
   .header-inner{padding:10px}
 }
@@ -60,6 +54,21 @@ body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica
 
 .product-page .product-detail{display:grid;grid-template-columns:1fr 1fr;gap:20px;padding:24px 0}
 @media(max-width:900px){.product-page .product-detail{grid-template-columns:1fr}}
+
+/* Clean product layout */
+.product-detail.clean{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:start;padding:28px 0}
+@media(max-width:1000px){.product-detail.clean{grid-template-columns:1fr}}
+.product-left .gallery-main{border-radius:12px;overflow:hidden;background:#f6f6f6;max-width:100%;height:260px;display:flex;align-items:center;justify-content:center}
+.product-left .gallery-main img{width:100%;height:100%;object-fit:cover}
+.gallery-thumbs{display:flex;gap:8px;margin-top:10px}
+.gallery-thumbs .thumb{background:transparent;border:0;padding:0}
+.gallery-thumbs img{width:64px;height:64px;object-fit:cover;border-radius:8px}
+.back-btn{display:inline-block;margin-bottom:12px}
+.product-right .lead{color:var(--color-muted);margin:12px 0}
+.purchase{display:flex;gap:12px;align-items:center;margin-top:12px}
+.purchase .qty input{width:72px;padding:8px;border-radius:8px;border:1px solid rgba(0,0,0,0.06)}
+.purchase-actions .btn{padding:10px 18px}
+.product-extra{margin-top:18px;background:var(--color-surface);padding:12px;border-radius:10px;box-shadow:0 6px 18px rgba(0,0,0,0.04)}
 
 /* small helpers */
 .muted{color:var(--muted)}
@@ -85,25 +94,148 @@ body{
 }
 .container{max-width:1100px;margin:0 auto;padding:0 16px}
 
-/* Header */
-.site-header{background:transparent;padding:18px 0}
-.site-header .container{display:flex;align-items:center;gap:12px}
-.brand{font-family:'Poppins', 'Inter', sans-serif;font-weight:600;color:var(--color-text);text-decoration:none;font-size:20px}
-.main-nav ul{list-style:none;margin:0;padding:0;display:flex;gap:18px}
-.main-nav a{color:var(--color-text);text-decoration:none;font-weight:500}
+/* Header (updated: overlay + blur inspired by segitseg) */
+:root{ --navbar-height:72px; }
+.site-header{
+  background: rgba(255,255,255,0.42); /* subtle overlay */
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  padding:0; height:var(--navbar-height); display:flex; align-items:center; position:sticky; top:0; z-index:60; border-bottom:1px solid rgba(0,0,0,0.04);
+}
+.site-header .container{display:flex;align-items:center;gap:12px;height:100%}
+.brand{font-family:'Poppins', 'Inter', sans-serif;font-weight:600;color:var(--color-text);text-decoration:none;font-size:20px;display:flex;align-items:center;gap:10px}
+.logo, .navbar-logo{height:40px;width:40px;border-radius:8px;object-fit:cover;transition:transform .3s ease}
+.logo:hover, .navbar-logo:hover{transform:scale(1.05)}
 .header-actions{margin-left:auto;display:flex;gap:8px;align-items:center}
 .icon-btn{background:transparent;border:0;font-size:18px;cursor:pointer}
 .cart-count{background:var(--color-primary);color:white;border-radius:10px;padding:2px 6px;margin-left:6px;font-size:12px}
 
+/* animated caret for dropdown items */
+/* legacy dropdown styles removed in favor of .menu rules below */
+
+/* legacy mobile nav.open rules removed */
+
 /* Hero / Carousel */
 .hero{padding:18px 0}
 .carousel{position:relative;border-radius:14px;overflow:hidden}
-.slide{display:flex;align-items:center;gap:24px;padding:28px;background:linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.4))}
+.slide{display:flex;align-items:center;gap:24px;margin-top:45px;padding:28px;background:linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.4))}
 .slide img{width:220px;height:220px;object-fit:cover;border-radius:12px;background:#eee}
 .slide .slide-content{max-width:720px}
 .slide h1{font-family:'Poppins';font-size:30px;margin:0 0 8px}
 .slide p{margin:0 0 12px;color:var(--color-muted)}
 .hero-ctas{display:flex;gap:12px}
+
+.hero.full {
+  padding-top: 0;
+  margin-bottom: 12px;
+}
+.hero.full .carousel {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  height: 420px;
+  min-height: 320px;
+}
+.hero.full .slide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+.hero.full .slide.active {
+  opacity: 1;
+  z-index: 2;
+}
+.hero.full .slide::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: var(--bg-image);
+  background-size: cover;
+  background-position: center;
+  filter: blur(12px) brightness(0.36);
+  z-index: 1;
+}
+.hero.full .slide .slide-content {
+  position: relative;
+  z-index: 3;
+  color: white;
+  max-width: 640px;
+  margin-left: 36px;
+  transform: translateX(20px);
+  opacity: 0;
+  transition: transform 0.7s ease, opacity 0.7s ease;
+}
+.hero.full .slide.active .slide-content {
+  transform: none;
+  opacity: 1;
+}
+.hero.full .slide h1 {
+  font-size: 34px;
+  margin: 0 0 8px;
+  text-shadow: 0 6px 18px rgba(0,0,0,0.45);
+}
+.hero.full .slide p {
+  font-size: 15px;
+  color: rgba(255,255,255,0.95);
+  margin: 0 0 12px;
+}
+
+.btn-ghost-subtle{background:rgba(255,255,255,0.12);color:white;border:1px solid rgba(255,255,255,0.18);padding:10px 14px;border-radius:999px}
+
+/* animated slide visibility handled by content slide-in for lateral motion */
+.hero.full .slide{opacity:1}
+.hero.full .slide.active{opacity:1}
+
+/* pause controls on hover/focus (accessible) */
+/* hero autoplay is controlled via JS (pause on hover/focus) */
+
+/* subtle CTA for hero */
+.hero .btn-primary{background:rgba(255,255,255,0.14);color:white;border:1px solid rgba(255,255,255,0.18)}
+.hero .btn-primary:hover{background:rgba(255,255,255,0.22)}
+
+/* removed multiple legacy nav selectors to simplify header styles */
+
+/* Section headers */
+.section-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.section-title{font-family:'Poppins';font-weight:600;font-size:20px}
+
+/* Mega-carousel: dense, many items per row (horizontal scroll) */
+.mega-carousel{display:flex;gap:12px;overflow:hidden;padding:8px 0;width:100%}
+.mega-carousel .product-card{flex:0 0 140px;max-width:140px}
+.mega-carousel .card-media{height:100px}
+
+@media(min-width:1600px){
+  /* allow visually many items */
+  .mega-carousel .product-card{flex:0 0 120px;max-width:120px}
+}
+@media(max-width:1200px){
+  .mega-carousel .product-card{flex:0 0 140px;max-width:140px}
+}
+@media(max-width:800px){
+  .hero.full .slide .slide-content{margin-left:20px}
+  .mega-carousel .product-card{flex:0 0 140px;max-width:140px}
+}
+
+/* Super-dense mega row to allow many small products in one visible row (scrollable) */
+.mega-super{display:flex;gap:8px;overflow:hidden;padding:6px 0;width:100%}
+.mega-super .product-card{flex:0 0 88px;max-width:88px}
+.mega-super .card-media{height:64px}
+.mega-super .product-title{font-size:11px}
+.mega-super .price{font-size:11px}
+
+@media(max-width:1600px){
+  .mega-super .product-card{flex:0 0 76px;max-width:76px}
+}
+
+/* Smaller card visuals */
+.product-card .card-body{padding:8px}
+.product-card .product-title{font-size:13px}
+.product-card .price{font-size:13px;font-weight:700}
+
 
 /* Products */
 .products{padding:28px 0}
@@ -129,7 +261,7 @@ body{
 .more-link{margin-top:18px;text-align:center}
 
 /* Footer */
-.site-footer{padding:28px 0;margin-top:28px;background:transparent}
+.site-footer{padding:28px 0;margin-top:28px;background:linear-gradient(180deg, rgba(242,239,233,0.5), rgba(242,239,233,0.85));border-top:1px solid rgba(17,24,39,0.03)}
 .site-footer .container{display:flex;justify-content:space-between;gap:20px}
 .site-footer a{color:var(--color-text);text-decoration:none}
 
@@ -146,3 +278,147 @@ a:focus, button:focus{outline:3px solid rgba(var(--primary-r),var(--primary-g),v
 
 /* Small helpers */
 .hidden{display:none}
+
+/* Product carousel (horizontal sliding pages of 5) */
+.product-carousel-wrap, .mega-carousel-wrap{position:relative;display:flex;align-items:center}
+.product-carousel, .mega-carousel{display:flex;gap:12px;overflow-x:auto;overflow-y:hidden;padding:8px 0;width:100%;align-items:flex-start;scroll-behavior:smooth}
+.product-carousel::-webkit-scrollbar, .mega-carousel::-webkit-scrollbar{height:8px}
+.product-carousel::-webkit-scrollbar-thumb, .mega-carousel::-webkit-scrollbar-thumb{background:rgba(0,0,0,0.06);border-radius:8px}
+.product-carousel .product-card, .mega-carousel .product-card{flex:0 0 calc((100% - 64px) / 5);max-width:calc((100% - 64px) / 5);border-radius:12px;box-shadow:0 6px 18px rgba(17,24,39,0.04);overflow:hidden}
+.carousel-arrow{background:rgba(0,0,0,0.06);border:0;padding:10px 12px;border-radius:8px;cursor:pointer;margin:0 8px}
+.carousel-arrow:hover{background:rgba(0,0,0,0.1)}
+
+/* legacy responsive nav open state removed */
+
+:root{ --navbar-height:72px; }
+.site-header{
+  background: rgba(255,255,255,0.9);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  padding:0; height:64px; display:block; align-items:center; position:sticky; top:0; z-index:80; border-bottom:1px solid rgba(0,0,0,0.06);
+}
+.site-header .container{display:flex;align-items:center;gap:12px;height:100%}
+.brand{display:flex;align-items:center;gap:10px}
+.logo{height:40px}
+.nav-toggle{display:none;background:transparent;border:0;font-size:22px;cursor:pointer;padding:6px 8px;border-radius:8px}
+.nav{flex:1}
+.nav-list{list-style:none;margin:0;padding:0;display:flex;gap:14px;align-items:center}
+.nav-item{position:relative}
+.nav-item a, .nav-item .dropdown-toggle{display:inline-block;padding:10px 12px;color:var(--color-text);text-decoration:none;border-radius:8px;background:transparent;border:0;cursor:pointer}
+.nav-item a:hover, .nav-item .dropdown-toggle:hover{background:rgba(17,24,39,0.04)}
+.dropdown-menu{
+  position:absolute;left:0;top:calc(100% + 2px);
+  background:var(--color-surface);
+  box-shadow:0 12px 30px rgba(0,0,0,0.08);
+  padding:8px 6px;border-radius:10px;display:block;min-width:220px;z-index:120;
+  opacity:0;transform:translateY(-6px);pointer-events:none;transition:opacity .14s ease,transform .14s ease;
+}
+.dropdown-menu li{padding:0}
+.dropdown-menu a{display:block;padding:8px 12px;color:var(--color-text)}
+.nav-item.open > .dropdown-menu{opacity:1;transform:translateY(0);pointer-events:auto}
+.has-mega:hover > .dropdown-menu{opacity:1;transform:translateY(0);pointer-events:auto}
+
+.dropdown-menu ul{list-style:none;margin:0;padding:6px}
+.dropdown-menu .subcat{padding:6px 0;display:flex;align-items:center;justify-content:space-between}
+.dropdown-menu .subcat a{display:block;color:var(--color-text);padding:8px 10px;border-radius:8px}
+.dropdown-menu .subcat a:hover, .dropdown-menu .subcat a:focus{background:rgba(17,24,39,0.04);outline:none}
+.dropdown-menu .subcat .caret-small{margin-left:8px;opacity:0.7}
+
+/* keep flyout visible and above other content */
+.flyout{transition:opacity .12s ease,transform .12s ease}
+.flyout[aria-hidden="true"]{opacity:0;transform:translateX(6px);pointer-events:none}
+.flyout[aria-hidden="false"]{opacity:1;transform:translateX(0);pointer-events:auto}
+
+/* focus styles inside the dropdown */
+.dropdown-menu a:focus{background:rgba(var(--primary-r),var(--primary-g),var(--primary-b),0.12);outline:none}
+.header-actions{display:flex;gap:12px;align-items:center}
+.search-input{border:1px solid rgba(0,0,0,0.08);padding:8px 10px;border-radius:999px;min-width:160px}
+
+@media (max-width:900px){
+  .nav-list{display:none}
+  .nav.open .nav-list{display:flex;flex-direction:column;position:absolute;top:64px;left:12px;right:12px;background:var(--color-surface);padding:12px;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,0.08)}
+  .nav-toggle{display:inline-block}
+  .search-input{min-width:120px}
+}
+  .product-carousel .product-card, .mega-carousel .product-card{flex:0 0 calc((100% - 48px) / 4);max-width:calc((100% - 48px) / 4)}
+
+/* Shop list/grid: force consistent card size and gap */
+#product-list-all.product-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;max-width:940px;margin:0 auto}
+#product-list-all .product-card{min-height:unset}
+@media (max-width:1000px){
+  .product-carousel .product-card{flex:0 0 calc((100% - 36px) / 3);max-width:calc((100% - 36px) / 3)}
+}
+@media (max-width:700px){
+  .product-carousel .product-card{flex:0 0 calc((100% - 24px) / 2);max-width:calc((100% - 24px) / 2)}
+}
+@media (max-width:420px){
+  .product-carousel .product-card{flex:0 0 100%;max-width:100%}
+}
+
+/* Search input */
+.search-wrap{display:flex;align-items:center}
+.search-input{border:1px solid rgba(0,0,0,0.08);padding:8px 10px;border-radius:999px;min-width:220px}
+
+/* Filters (shop) */
+.shop-layout{display:flex;gap:20px}
+.filters{width:240px;background:var(--color-surface);padding:12px;border-radius:10px;box-shadow:0 6px 18px rgba(17,24,39,0.04)}
+.shop-grid{flex:1}
+
+@media (max-width:900px){
+  .shop-layout{flex-direction:column}
+  .filters{width:100%}
+}
+
+/* Shop layout adjustments: filters should not stretch to full height and product grid is centered */
+.shop-layout{display:flex;gap:20px;align-items:flex-start}
+.filters{width:240px;background:var(--color-surface);padding:12px;border-radius:10px;box-shadow:0 6px 18px rgba(17,24,39,0.04);align-self:flex-start}
+.shop-grid{flex:1}
+
+/* Small promotional banner card */
+.promo-card{display:flex;align-items:center;justify-content:center;padding:12px;border-radius:12px;background:linear-gradient(90deg, rgba(212,169,90,0.12), rgba(212,169,90,0.06));min-height:160px}
+
+/* simplified: menu has its own responsive media rules below */
+
+/* Desktop nav layout: brand left, nav middle, actions right */
+.header-inner{display:flex;align-items:center;gap:12px;height:100%;}
+.brand{flex:0 0 auto}
+.nav{flex:1;display:flex;justify-content:center}
+.header-actions{flex:0 0 auto;margin-left:auto;display:flex;align-items:center;gap:8px}
+
+/* Dropdown refinements */
+.nav-item .dropdown-menu{top:calc(var(--navbar-height) + 6px);left:0;}
+
+/* menu removed per user request */
+
+/* New navbar specifics */
+.brand-text{font-weight:700;margin-left:8px;font-size:18px;color:var(--color-text)}
+.nav-list{gap:18px}
+.has-mega > .dropdown-menu.vertical{min-width:220px;padding:12px}
+.dropdown-menu.vertical ul{list-style:none;margin:0;padding:0}
+.dropdown-menu.vertical .subcat{padding:6px 0;display:flex;align-items:center;justify-content:space-between}
+.dropdown-menu.vertical .subcat a{color:var(--color-text);text-decoration:none;padding:6px 8px;border-radius:6px}
+.dropdown-menu.vertical .subcat:hover > a{background:rgba(17,24,39,0.03)}
+
+/* Flyout panel for deeper categories */
+.flyout{position:absolute;top:0;left:100%;transform:translateX(12px);background:var(--color-surface);box-shadow:0 12px 30px rgba(0,0,0,0.08);border-radius:8px;padding:10px;min-width:200px;display:none;z-index:95}
+.flyout .fly-list{list-style:none;margin:0;padding:0}
+.flyout .fly-list li{padding:6px 8px}
+.subcat:hover > .flyout, .subcat:focus-within > .flyout{display:block}
+.dropdown-menu, .flyout{pointer-events:auto}
+
+/* ensure flyouts are visible on the right side for .flyout-right */
+.flyout-right{left:calc(100% - 8px)}
+
+/* icons & actions */
+.icon-btn{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:8px}
+.cart-link{display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:var(--color-text)}
+.cart-count{background:var(--color-primary);color:white;border-radius:999px;padding:2px 6px;font-size:12px}
+
+/* Mobile: collapse nav */
+@media(max-width:900px){
+  .nav-list{display:none}
+  .nav.open .nav-list{display:flex;flex-direction:column;position:absolute;top:var(--navbar-height);left:12px;right:12px;background:var(--color-surface);padding:12px;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,0.08)}
+  .has-mega .dropdown-menu{position:static;transform:none;box-shadow:none}
+  .flyout{position:static;transform:none;box-shadow:none;display:none}
+  .subcat.open > .flyout{display:block}
+}
