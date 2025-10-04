@@ -41,6 +41,6 @@ Próbáld ki helyben:
 2) Ha HTTP szerveren akarod futtatni: `python -m http.server 8000` a mappában, majd nyisd meg http://localhost:8000
 
 Módosítások regisztrálva:
-0.02: 1015.10.04 18:21
+- v0.02: 2015.10.04 18:21
 
 Megjegyzés: a fő márkaszín a következő RGBA alapján lett beállítva: rgba(212,169,90)
