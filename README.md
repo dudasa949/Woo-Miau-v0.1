@@ -40,10 +40,7 @@ Próbáld ki helyben:
 1) Nyisd meg a `index.html` fájlt a böngésződben (dupla katt).
 2) Ha HTTP szerveren akarod futtatni: `python -m http.server 8000` a mappában, majd nyisd meg http://localhost:8000
 
-Következő lépések javasoltak:
-- Termék oldalak létrehozása (dedikált oldal minden termékhez)
-- Átmeneti fotók cseréje valódi termékképekre (WebP/ srcset)
-- Kisebb JS modulok: kosár drawer, kereső, lazy-loading
-- Integráció: választott e-commerce backend (WooCommerce / Shopify / headless)
+Módosítások regisztrálva:
+0.02: 1015.10.04 18:21
 
 Megjegyzés: a fő márkaszín a következő RGBA alapján lett beállítva: rgba(212,169,90)
